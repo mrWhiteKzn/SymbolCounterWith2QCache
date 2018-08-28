@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         SymbolCounter symbolCounter = new SymbolCounter();
-        String result = symbolCounter.getCount("Мама, меня фура убила");
+        String result = symbolCounter.count("Мама, меня фура убила");
         System.out.println(result);
     }
 }

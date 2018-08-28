@@ -8,17 +8,19 @@ import java.util.stream.Collectors;
 public class SymbolCounter {
     Map<String, Map> cache = new HashMap<>();
 
-    public String getCount(String input) {
+    public String count(String input) {
         if (!cache.containsKey(input)) {
-            addToCache(input);
+            Map<String, Long> frequentChars = Arrays.stream(
+                    input.split("")).collect(
+                    Collectors.groupingBy(c -> c, Collectors.counting()));
+
+            addToCache(input, frequentChars);
+            return frequentChars.toString();
         }
         return cache.get(input).toString();
     }
 
-    private void addToCache(String input) {
-        Map<String, Long> frequentChars = Arrays.stream(
-                input.split("")).collect(
-                Collectors.groupingBy(c -> c, Collectors.counting()));
+    private void addToCache(String input, Map<String, Long> frequentChars) {
         cache.put(input, frequentChars);
     }
 }
