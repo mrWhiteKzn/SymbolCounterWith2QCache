@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SymbolCounter {
-    Map<String, Map> cache = new HashMap<>();
+
+    private static final int HASH_SIZE = 4096;
+    private Map<String, Map> cache = new HashMap<>(HASH_SIZE);
 
     public Map count(String input) {
         if (!cache.containsKey(input)) {
