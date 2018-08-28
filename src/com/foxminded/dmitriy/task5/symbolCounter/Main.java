@@ -1,10 +1,13 @@
 package com.foxminded.dmitriy.task5.symbolCounter;
 
-public class Main {
+import java.util.Map;
 
+public class Main {
     public static void main(String[] args) {
         SymbolCounter symbolCounter = new SymbolCounter();
-        String result = symbolCounter.count("Мама, меня фура убила");
+        ColumnFormatter formatter = new ColumnFormatter();
+        Map charsCount = symbolCounter.count("hello world");
+        String result = formatter.format(charsCount);
         System.out.println(result);
     }
 }
