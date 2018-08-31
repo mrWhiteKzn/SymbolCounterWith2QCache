@@ -16,10 +16,8 @@ public class SymbolCounter {
                     Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()));
 
             cache.put(input, frequentChars);
-            System.out.println("no cache");
             return frequentChars.toString();
         }
-        System.out.println("from cache");
         return cache.get(input).toString();
     }
 }

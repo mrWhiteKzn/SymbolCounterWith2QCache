@@ -60,8 +60,8 @@ public class SymbolCounterTest {
 
     @Test
     public void getCountCyrillicString() {
-        String actual = counter.count("Не плачь, Деметра и отойди от котёнка!");
-        String expected = "{Н=1, е=3,  =6, п=1, л=1, а=3, ч=1, ь=1, ,=1, Д=1, м=1, т=4, р=1, и=2, о=4, й=1, д=1, к=2, ё=1, н=1, !=1}";
+        String actual = counter.count("Не плачь, Деметра, и отойди от котёнка!");
+        String expected = "{Н=1, е=3,  =6, п=1, л=1, а=3, ч=1, ь=1, ,=2, Д=1, м=1, т=4, р=1, и=2, о=4, й=1, д=1, к=2, ё=1, н=1, !=1}";
         assertEquals(expected, actual);
     }
 }

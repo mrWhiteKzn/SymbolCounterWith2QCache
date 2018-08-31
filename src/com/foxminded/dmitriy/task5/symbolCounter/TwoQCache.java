@@ -49,7 +49,9 @@ public class TwoQCache<K, V> {
     }
 
     public V get(K key) {
-        Objects.requireNonNull(key, "key should not be null whet getting from the cache");
+        if (key == null) {
+            throw new IllegalArgumentException("key == null");
+        }
         V mapValue;
         synchronized (this) {
             mapValue = map.get(key);
@@ -89,8 +91,9 @@ public class TwoQCache<K, V> {
     }
 
     public V put(K key, V value) {
-        Objects.requireNonNull(key, "key should not be null when putting in the cache");
-        Objects.requireNonNull(value, "value should not be null when putting in the cache");
+        if (key == null || value == null){
+            throw new IllegalArgumentException("key == null || value == null");
+        }
 
         if (map.containsKey(key)) {
             synchronized (this) {
@@ -250,7 +253,9 @@ public class TwoQCache<K, V> {
     }
 
     private V remove(K key) {
-        Objects.requireNonNull(key, "key must not be null");
+        if (key == null){
+            throw new IllegalArgumentException("key is null");
+        }
 
         V previous;
         synchronized (this) {
