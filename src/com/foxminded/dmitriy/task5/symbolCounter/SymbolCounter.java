@@ -6,27 +6,20 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SymbolCounter {
-    private static final int MAX_ENTRIES = 128;
-    private LinkedHashMap<String, Map> cache = new LinkedHashMap<String, Map>(MAX_ENTRIES) {
-        @Override
-        protected boolean removeEldestEntry(Map.Entry eldest) {
-            return size() >= MAX_ENTRIES;
-        }
-    };
+    private static final int MAX_CACHE_SIZE = 128;
+    private TwoQCache cache = new TwoQCache<String, Map>(MAX_CACHE_SIZE);
 
-    public Map count(String input) {
-        if (!cache.containsKey(input)) {
+    public String count(String input) {
+        if (cache.get(input) == null) {
             Map<String, Long> frequentChars = Arrays.stream(
                     input.split("")).collect(
                     Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()));
 
-            addToCache(input, frequentChars);
-            return frequentChars;
+            cache.put(input, frequentChars);
+            System.out.println("no cache");
+            return frequentChars.toString();
         }
-        return cache.get(input);
-    }
-
-    private void addToCache(String input, Map<String, Long> frequentChars) {
-        cache.put(input, frequentChars);
+        System.out.println("from cache");
+        return cache.get(input).toString();
     }
 }

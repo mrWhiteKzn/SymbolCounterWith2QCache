@@ -4,9 +4,6 @@ import com.foxminded.dmitriy.task5.symbolCounter.SymbolCounter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 
 public class SymbolCounterTest {
@@ -14,151 +11,57 @@ public class SymbolCounterTest {
     private SymbolCounter counter;
 
     @Before
-    public void setup(){
+    public void setup() {
         counter = new SymbolCounter();
     }
 
     @Test
     public void countDefaultString() {
-        Map actual = counter.count("hello world!");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("h", 1L);
-        expected.put("e", 1L);
-        expected.put("l", 3L);
-        expected.put("o", 2L);
-        expected.put(" ", 1L);
-        expected.put("w", 1L);
-        expected.put("r", 1L);
-        expected.put("d", 1L);
-        expected.put("!", 1L);
-        assertEquals(expected,actual);
+        String actual = counter.count("hello world!");
+        String expected = "{h=1, e=1, l=3, o=2,  =1, w=1, r=1, d=1, !=1}";
+        assertEquals(expected, actual);
     }
 
-    @Test
-    public void countShortString() {
-        Map actual = counter.count("oO");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("o", 1L);
-        expected.put("O", 1L);
-        assertEquals(expected,actual);
-    }
-
-    @Test
-    public void countLongString() {
-        Map actual = counter.count("JAVA is THE MOST POPULAR PROGRAMMING language LANGUAGE lAnGuAgE!");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("J", 1L);
-        expected.put("A", 8L);
-        expected.put("V", 1L);
-        expected.put(" ", 8L);
-        expected.put("i", 1L);
-        expected.put("s", 1L);
-        expected.put("T", 2L);
-        expected.put("H", 1L);
-        expected.put("E", 3L);
-        expected.put("M", 3L);
-        expected.put("O", 3L);
-        expected.put("S", 1L);
-        expected.put("P", 3L);
-        expected.put("U", 2L);
-        expected.put("L", 2L);
-        expected.put("R", 3L);
-        expected.put("G", 5L);
-        expected.put("I", 1L);
-        expected.put("N", 2L);
-        expected.put("l", 2L);
-        expected.put("a", 2L);
-        expected.put("n", 2L);
-        expected.put("g", 3L);
-        expected.put("u", 2L);
-        expected.put("e", 1L);
-        expected.put("!", 1L);
-        assertEquals(expected,actual);
-    }
-
-    @Test
-    public void countCyrillicString() {
-        Map actual = counter.count("Мама, меня фура убила");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("М", 1L);
-        expected.put("а", 4L);
-        expected.put("м", 2L);
-        expected.put(",", 1L);
-        expected.put(" ", 3L);
-        expected.put("е", 1L);
-        expected.put("н", 1L);
-        expected.put("я", 1L);
-        expected.put("ф", 1L);
-        expected.put("у", 2L);
-        expected.put("р", 1L);
-        expected.put("б", 1L);
-        expected.put("и", 1L);
-        expected.put("л", 1L);
-        assertEquals(expected,actual);
-    }
-
-    @Test
-    public void countChineseString() {
-        Map actual = counter.count("南部壮语, 南部壯語");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("南", 2L);
-        expected.put("部", 2L);
-        expected.put("壮", 1L);
-        expected.put("语", 1L);
-        expected.put(",", 1L);
-        expected.put(" ", 1L);
-        expected.put("壯", 1L);
-        expected.put("語", 1L);
-        assertEquals(expected,actual);
-    }
 
     @Test
     public void countSpecialSymbolsString() {
-        Map actual = counter.count("|||**^(@@#$!$(%(#_@$$$!^_^");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("|", 3L);
-        expected.put("*", 2L);
-        expected.put("^", 3L);
-        expected.put("(", 3L);
-        expected.put("@", 3L);
-        expected.put("#", 2L);
-        expected.put("$", 5L);
-        expected.put("!", 2L);
-        expected.put("%", 1L);
-        expected.put("_", 2L);
-        assertEquals(expected,actual);
+        String actual = counter.count("|||**^(@@#$!$(%(#_@$$$!^_^");
+        String expected = "{|=3, *=2, ^=3, (=3, @=3, #=2, $=5, !=2, %=1, _=2}";
+        assertEquals(expected, actual);
     }
 
     @Test
     public void countUrlString() {
-        Map actual = counter.count("http://git.foxminded.com.ua/DmitriyWhite/symbolCounter");
-        Map<String, Long> expected = new LinkedHashMap<>();
-        expected.put("h", 2L);
-        expected.put("t", 6L);
-        expected.put("p", 1L);
-        expected.put(":", 1L);
-        expected.put("/", 4L);
-        expected.put("g", 1L);
-        expected.put("i", 5L);
-        expected.put(".", 3L);
-        expected.put("f", 1L);
-        expected.put("o", 4L);
-        expected.put("x", 1L);
-        expected.put("m", 4L);
-        expected.put("n", 2L);
-        expected.put("d", 2L);
-        expected.put("e", 3L);
-        expected.put("c", 1L);
-        expected.put("u", 2L);
-        expected.put("a", 1L);
-        expected.put("D", 1L);
-        expected.put("r", 2L);
-        expected.put("y", 2L);
-        expected.put("W", 1L);
-        expected.put("s", 1L);
-        expected.put("b", 1L);
-        expected.put("l", 1L);
-        expected.put("C", 1L);
-        assertEquals(expected,actual);
+        String actual = counter.count("http://git.foxminded.com.ua/DmitriyWhite/symbolCounter");
+        String expected = "{h=2, t=6, p=1, :=1, /=4, g=1, i=5, .=3, f=1, o=4, x=1, m=4, n=2, d=2, e=3, c=1, u=2, a=1, D=1, r=2, y=2, W=1, s=1, b=1, l=1, C=1}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getCountShortString() {
+        String actual = counter.count("oO");
+        String expected = "{o=1, O=1}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getCountLongString() {
+        String actual = counter.count("Java is my favorite language");
+        String expected = "{J=1, a=5, v=2,  =4, i=2, s=1, m=1, y=1, f=1, o=1, r=1, t=1, e=2, l=1, n=1, g=2, u=1}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void countChineseString() {
+        String actual = counter.count("南部壮语, 南部壯語");
+        String expected = "{南=2, 部=2, 壮=1, 语=1, ,=1,  =1, 壯=1, 語=1}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getCountCyrillicString() {
+        String actual = counter.count("Не плачь, Деметра и отойди от котёнка!");
+        String expected = "{Н=1, е=3,  =6, п=1, л=1, а=3, ч=1, ь=1, ,=1, Д=1, м=1, т=4, р=1, и=2, о=4, й=1, д=1, к=2, ё=1, н=1, !=1}";
+        assertEquals(expected, actual);
     }
 }

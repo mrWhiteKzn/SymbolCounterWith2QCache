@@ -3,7 +3,6 @@ package com.foxminded.dmitriy.task5.symbolCounter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.Map;
 
 
 public class TwoQCache<K, V> {
@@ -90,7 +89,7 @@ public class TwoQCache<K, V> {
         }
     }
 
-    private V put(K key, V value) {
+    public V put(K key, V value) {
         if (key == null || value == null) {
             throw new NullPointerException("key or value == null");
         }
@@ -135,6 +134,50 @@ public class TwoQCache<K, V> {
                 }
             }
 
+        }
+        return result;
+    }
+
+    private boolean trimMapIn(final int sizeOfValue) {
+        boolean result = false;
+        if (maxSizeIn < sizeOfValue) {
+            return result;
+        } else {
+            while (mapIn.iterator().hasNext()) {
+                K keyIn;
+                V valueIn;
+                if (!mapIn.iterator().hasNext()) {
+                    System.out.println("error");
+                }
+                keyIn = mapIn.iterator().next();
+                valueIn = map.get(keyIn);
+                if ((sizeIn + sizeOfValue) <= maxSizeIn || mapIn.isEmpty()) {
+                    if (keyIn == null) {
+                        System.out.println("error");
+                    }
+                    mapIn.add(keyIn);
+                    sizeIn += sizeOfValue;
+                    result = true;
+                    break;
+                }
+                mapIn.remove(keyIn);
+                final int removedItemSize = safeSizeOf(keyIn, valueIn);
+                sizeIn -= removedItemSize;
+
+                while (mapOut.iterator().hasNext()) {
+                    K keyOut;
+                    V valueOut;
+                    if ((sizeOut + removedItemSize) <= maxSizeOut || mapOut.isEmpty()) {
+                        mapOut.add(keyIn);
+                        sizeOut += removedItemSize;
+                        break;
+                    }
+                    keyOut = mapOut.iterator().next();
+                    mapOut.remove(keyOut);
+                    valueOut = map.get(keyOut);
+                    sizeOut -= safeSizeOf(keyOut, valueOut);
+                }
+            }
         }
         return result;
     }
