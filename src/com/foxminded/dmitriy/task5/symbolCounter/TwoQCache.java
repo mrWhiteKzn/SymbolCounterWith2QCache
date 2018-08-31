@@ -3,6 +3,7 @@ package com.foxminded.dmitriy.task5.symbolCounter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 
 
 public class TwoQCache<K, V> {
@@ -48,9 +49,7 @@ public class TwoQCache<K, V> {
     }
 
     public V get(K key) {
-        if (key == null) {
-            throw new NullPointerException("Key == null");
-        }
+        Objects.requireNonNull(key, "key should not be null whet getting from the cache");
         V mapValue;
         synchronized (this) {
             mapValue = map.get(key);
@@ -90,9 +89,8 @@ public class TwoQCache<K, V> {
     }
 
     public V put(K key, V value) {
-        if (key == null || value == null) {
-            throw new NullPointerException("key or value == null");
-        }
+        Objects.requireNonNull(key, "key should not be null when putting in the cache");
+        Objects.requireNonNull(value, "value should not be null when putting in the cache");
 
         if (map.containsKey(key)) {
             synchronized (this) {
@@ -146,15 +144,11 @@ public class TwoQCache<K, V> {
             while (mapIn.iterator().hasNext()) {
                 K keyIn;
                 V valueIn;
-                if (!mapIn.iterator().hasNext()) {
-                    System.out.println("error");
-                }
+
                 keyIn = mapIn.iterator().next();
                 valueIn = map.get(keyIn);
                 if ((sizeIn + sizeOfValue) <= maxSizeIn || mapIn.isEmpty()) {
-                    if (keyIn == null) {
-                        System.out.println("error");
-                    }
+
                     mapIn.add(keyIn);
                     sizeIn += sizeOfValue;
                     result = true;
@@ -256,9 +250,7 @@ public class TwoQCache<K, V> {
     }
 
     private V remove(K key) {
-        if (key == null) {
-            throw new NullPointerException("key = null");
-        }
+        Objects.requireNonNull(key, "key must not be null");
 
         V previous;
         synchronized (this) {
@@ -299,5 +291,23 @@ public class TwoQCache<K, V> {
 
     private int sizeOf(K key, V value) {
         return 1;
+    }
+
+    public synchronized final int size(){
+        return sizeIn + sizeOut + sizeHot;
+    }
+
+    public synchronized final int maxSize(){
+        return maxSizeIn + maxSizeOut + maxSizeHot;
+    }
+
+    @Override
+    public String toString() {
+        int accesses = hitCount + missCount;
+        int hitPercent = accesses != 0 ? (100 * hitCount / accesses) : 0;
+        return String.format("Cache[size=%d,maxSize=%d,hits=%d,misses=%d,hitRate=%d%%," +
+                        "]",
+                size(), maxSize(), hitCount, missCount, hitPercent)
+                + "\n map:" + map.toString();
     }
 }
