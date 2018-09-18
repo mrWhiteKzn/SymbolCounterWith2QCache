@@ -3,7 +3,6 @@ package com.foxminded.dmitriy.task5.symbolCounter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.Objects;
 
 
 public class TwoQCache<K, V> {
@@ -125,6 +124,7 @@ public class TwoQCache<K, V> {
             } else {
                 if (trimMapIn(sizeOfValue)) {
                     map.put(key, value);
+                    mapIn.add(key);
                     result = value;
                 } else {
                     map.put(key, value);
@@ -157,6 +157,7 @@ public class TwoQCache<K, V> {
                     result = true;
                     break;
                 }
+                map.remove(keyIn);
                 mapIn.remove(keyIn);
                 final int removedItemSize = safeSizeOf(keyIn, valueIn);
                 sizeIn -= removedItemSize;
@@ -278,7 +279,6 @@ public class TwoQCache<K, V> {
         if (previous != null) {
             entryRemoved(false, key, previous, null);
         }
-
         return previous;
     }
 
