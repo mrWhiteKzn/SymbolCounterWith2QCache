@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55c4ffc3-ff0d-4cd7-9484-03f4800f2ef5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_all_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Task5/com/foxminded/dmitriy/task5/symbolCounter/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Task5/com/foxminded/dmitriy/task5/symbolCounter/SymbolCounter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Task5/com/foxminded/dmitriy/task5/symbolCounter/TwoQCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Task5/com/foxminded/dmitriy/task5/symbolCounter/tests/SymbolCounterTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Task5/com/foxminded/dmitriy/task5/symbolCounter/tests/TwoQCacheTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore~HEAD" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +83,8 @@
       <file leaf-file-name=".gitignore~HEAD" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore~HEAD">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -161,62 +176,6 @@
             <path>
               <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
               <item name="Task5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="foxminded" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="foxminded" type="462c0819:PsiDirectoryNode" />
-              <item name="dmitriy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="foxminded" type="462c0819:PsiDirectoryNode" />
-              <item name="dmitriy" type="462c0819:PsiDirectoryNode" />
-              <item name="task5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="foxminded" type="462c0819:PsiDirectoryNode" />
-              <item name="dmitriy" type="462c0819:PsiDirectoryNode" />
-              <item name="task5" type="462c0819:PsiDirectoryNode" />
-              <item name="symbolCounter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Task5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="foxminded" type="462c0819:PsiDirectoryNode" />
-              <item name="dmitriy" type="462c0819:PsiDirectoryNode" />
-              <item name="task5" type="462c0819:PsiDirectoryNode" />
-              <item name="symbolCounter" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Task5" type="b2602c69:ProjectViewProjectNode" />
@@ -421,7 +380,7 @@
       <workItem from="1535354843521" duration="20477000" />
       <workItem from="1535462014618" duration="27523000" />
       <workItem from="1537166366907" duration="144000" />
-      <workItem from="1537167382175" duration="29767000" />
+      <workItem from="1537167382175" duration="29926000" />
     </task>
     <servers />
   </component>
@@ -458,7 +417,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77911000" />
+    <option name="totallyTimeSpent" value="78070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -747,10 +706,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Task5.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore~HEAD">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
